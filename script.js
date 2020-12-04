@@ -8,4 +8,49 @@ const generateTarget = () => {
     return Math.floor(Math.random() * 10);
 };
 
-console.log(generateTarget());
+const compareGuesses = (humanGuess, computerGuess, generatedTarget) => {
+
+    let userDiff = generatedTarget - humanGuess;
+    let botDiff = generatedTarget - computerGuess;
+    
+    if (userDiff > botDiff) {
+        return false;
+    } else if (userDiff < botDiff) {
+        return true;
+    } else if ((userDiff < 0) && (botDiff < 0)) {
+        let posUserDiff = userDiff * -1;
+        let posBotDiff = botDiff * -1;
+
+        if (posUserDiff > posBotDiff) {
+            return false;
+        } else {
+            return true;
+        };
+        
+    } else if (userDiff < 0) && (botDiff > 0) {
+        let posUserDiff = userDiff * -1;
+
+        if (posUserDiff > botDiff) {
+            return false;
+        } else {
+            return true;
+        };
+    
+    } else if (botDiff < 0) && (userDiff > 0) {
+        let posBotDiff = botDiff * -1;
+
+        if (userDiff > posBotDiff) {
+            return false;
+        } else {
+            return true;
+        };
+        
+    } else if (userDiff === 0) {
+        return true;
+    } else if (botDiff === 0) {
+        return false;
+    } else if (userDiff === botDiff) {
+        return true;
+    };
+
+}
