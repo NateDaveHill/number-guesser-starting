@@ -4,9 +4,13 @@ let currentRoundNumber = 1;
 
 // Write your code below:
 
+//function that generates a random num between 0 - 9
+
 const generateTarget = () => {
     return Math.floor(Math.random() * 10);
 };
+
+// compares the different inputs and sees which one is closer to the target
 
 const compareGuesses = (humanGuess, computerGuess, generateTarget) => {
 
@@ -55,31 +59,45 @@ const compareGuesses = (humanGuess, computerGuess, generateTarget) => {
 
 };
 
-let input = "";
+// allows us to change the input from true & false to "human" & "computer"
+
+let input;
 
 if (compareGuesses() === true) {
-    let input = "human";
+    input = "human";
 } else {
-    let input = "computer";
+    input = "computer";
 };
 
+// updates scoreboard by increasing the score depending on who wins (++)
+
 const updateScore = (input) => {
+    let newHumanScore;
+    let newComputerScore;
+
     if (input === "human") {
-        humanScore ++;
+        let newHumanScore = humanScore++;
+        return newHumanScore;
     } else if (input === "computer") {
-        computerScore ++;
+        let newComputerScore = computerScore++;
+        return newComputerScore;
     } else {
         console.log("There is no winner.");
     };
 }
 
+// updates the rounds by increasing the currentRound after each run through (++)
+
 function advanceRoundNumber() {
     if ((input === true) || (input === false)) {
-        currentRoundNumber ++;
+        return currentRoundNumber ++;
     };
 }
 
-console.log(compareGuesses(3, 3, generateTarget()));
-console.log(updateScore());
-console.log(advanceRoundNumber());
-console.log(humanScore, computerScore, currentRoundNumber);
+// calling the functions to test how they are working so far
+
+console.log(input);
+// compareGuesses(3, 3, generateTarget()); //seems to work
+// console.log(updateScore("human")); // returns There is no winner
+// console.log(advanceRoundNumber()); // undefined
+// console.log(humanScore, computerScore, currentRoundNumber); //score stays the same
