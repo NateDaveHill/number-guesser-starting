@@ -27,7 +27,7 @@ const compareGuesses = (humanGuess, computerGuess, generatedTarget) => {
             return true;
         };
         
-    } else if (userDiff < 0) && (botDiff > 0) {
+    } else if ((userDiff < 0) && (botDiff > 0)) {
         let posUserDiff = userDiff * -1;
 
         if (posUserDiff > botDiff) {
@@ -36,7 +36,7 @@ const compareGuesses = (humanGuess, computerGuess, generatedTarget) => {
             return true;
         };
     
-    } else if (botDiff < 0) && (userDiff > 0) {
+    } else if ((botDiff < 0) && (userDiff > 0)) {
         let posBotDiff = botDiff * -1;
 
         if (userDiff > posBotDiff) {
@@ -53,4 +53,5 @@ const compareGuesses = (humanGuess, computerGuess, generatedTarget) => {
         return true;
     };
 
-}
+};
+
