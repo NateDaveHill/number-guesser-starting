@@ -55,20 +55,31 @@ const compareGuesses = (humanGuess, computerGuess, generateTarget) => {
 
 };
 
-const updateScore = (compareGuesses) => {
-    if (compareGuesses() === true) {
+let input = "";
+
+if (compareGuesses() === true) {
+    let input = "human";
+} else {
+    let input = "computer";
+};
+
+const updateScore = (input) => {
+    if (input === "human") {
         humanScore ++;
-    } else if (compareGuesses() === false) {
+    } else if (input === "computer") {
         computerScore ++;
     } else {
         console.log("There is no winner.");
     };
-}; 
+}
 
-const advanceRoundNumber = () => {
-    if ((compareGuesses() === true) || (compareGuesses() === false)) {
+function advanceRoundNumber() {
+    if ((input === true) || (input === false)) {
         currentRoundNumber ++;
     };
-};
+}
 
-console.log(compareGuesses(1, 2, generateTarget()));
+console.log(compareGuesses(3, 3, generateTarget()));
+console.log(updateScore());
+console.log(advanceRoundNumber());
+console.log(humanScore, computerScore, currentRoundNumber);
