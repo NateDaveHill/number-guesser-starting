@@ -55,3 +55,12 @@ const compareGuesses = (humanGuess, computerGuess, generatedTarget) => {
 
 };
 
+cosnt updateScore = (winner) => {
+    if (winner === "human") {
+        humanScore ++ 1;
+    } else if (winner === "computer") {
+        computerScore ++ 1;
+    } else {
+        console.log("There is no winner.");
+    };
+} 
