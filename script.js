@@ -8,10 +8,10 @@ const generateTarget = () => {
     return Math.floor(Math.random() * 10);
 };
 
-const compareGuesses = (humanGuess, computerGuess, generatedTarget) => {
+const compareGuesses = (humanGuess, computerGuess, generateTarget) => {
 
-    let userDiff = generatedTarget - humanGuess;
-    let botDiff = generatedTarget - computerGuess;
+    let userDiff = generateTarget - humanGuess;
+    let botDiff = generateTarget - computerGuess;
     
     if (userDiff > botDiff) {
         return false;
@@ -55,11 +55,11 @@ const compareGuesses = (humanGuess, computerGuess, generatedTarget) => {
 
 };
 
-const updateScore = (winner) => {
-    if (winner === "human") {
-        humanScore ++ 1;
-    } else if (winner === "computer") {
-        computerScore ++ 1;
+const updateScore = (compareGuesses) => {
+    if (compareGuesses() === true) {
+        humanScore ++;
+    } else if (compareGuesses() === false) {
+        computerScore ++;
     } else {
         console.log("There is no winner.");
     };
@@ -67,6 +67,8 @@ const updateScore = (winner) => {
 
 const advanceRoundNumber = () => {
     if ((compareGuesses() === true) || (compareGuesses() === false)) {
-        currentRoundNumber ++ 1;
+        currentRoundNumber ++;
     };
 };
+
+console.log(compareGuesses(1, 2, generateTarget()));
