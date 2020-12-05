@@ -55,7 +55,7 @@ const compareGuesses = (humanGuess, computerGuess, generatedTarget) => {
 
 };
 
-cosnt updateScore = (winner) => {
+const updateScore = (winner) => {
     if (winner === "human") {
         humanScore ++ 1;
     } else if (winner === "computer") {
@@ -63,4 +63,10 @@ cosnt updateScore = (winner) => {
     } else {
         console.log("There is no winner.");
     };
-} 
+}; 
+
+const advanceRoundNumber = () => {
+    if ((compareGuesses() === true) || (compareGuesses() === false)) {
+        currentRoundNumber ++ 1;
+    };
+};
