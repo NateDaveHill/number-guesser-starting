@@ -68,6 +68,7 @@ let compareGuesses = (humanGuess, computerGuess, targetNumber) => {
     const userG = Math.abs(targetNumber - humanGuess);
     const computerG = Math.abs(targetNumber - computerGuess);
     return userG <= computerG;
+};
 
 /*
 
@@ -89,8 +90,6 @@ const updateScore = (input) => {
 
 // updates the rounds by increasing the currentRound after each run through (++)
 
-function advanceRoundNumber() {
+function advanceRound() {
     currentRoundNumber ++;
 };
-
-
